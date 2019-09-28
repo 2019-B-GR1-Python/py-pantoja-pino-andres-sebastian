@@ -1,1 +1,0 @@
-Andrés Sebastián Pantoja Pino
