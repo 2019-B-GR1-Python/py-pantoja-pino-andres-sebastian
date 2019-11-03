@@ -2,7 +2,7 @@ class Menu:
     def menu_inicial(self):
         print("Bienvenido!" + "\n" + "Gestion de: " + "\n" + "1. Marcas" 
         + "\n" + "2. Modelos" + "\n" + "3. Salir" )
-        entrada = input("Seleccione 1 o 2 Según sea necesario") 
+        entrada = input("Ingrese el número de la opcion por seleccionada\n") 
         if(entrada == "1"):
             print("Gestion de marcas")
         elif(entrada == "2"):

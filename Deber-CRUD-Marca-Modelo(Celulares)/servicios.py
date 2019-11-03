@@ -47,7 +47,7 @@ class Servicios:
             return self.datos[indice_dato]
 
     def eliminar(self, id):
-        indice = self.buscar_indice(self.datos, id)
+        indice = self.buscar(self.datos, id)
         print(f"El indice es {indice} \n")
         if (indice == -1):
             return "Elemento no encontrado"
