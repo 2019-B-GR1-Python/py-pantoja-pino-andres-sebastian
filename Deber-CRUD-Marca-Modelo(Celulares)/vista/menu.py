@@ -1,5 +1,5 @@
-from serviciosModelo import ServiciosModelo
-from serviciosMarcas import ServiciosMarcas
+from controlador.serviciosModelo import ServiciosModelo
+from controlador.serviciosMarcas import ServiciosMarcas
 class Menu:
     modelo_servicios = ServiciosModelo()
     marca_servicios = ServiciosMarcas()
@@ -194,5 +194,3 @@ class Menu:
         }
         respuesta = self.modelo_servicios.insertar(dato_ingresar)
         print(respuesta)
-menu = Menu()
-menu.menu_inicial()

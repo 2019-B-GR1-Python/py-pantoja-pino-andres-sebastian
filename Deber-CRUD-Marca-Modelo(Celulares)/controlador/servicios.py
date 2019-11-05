@@ -20,7 +20,7 @@ class Servicios:
         self.datos.append(dato_nuevo)
         self.archivo.escribir(self.nombre_archivo,self.datos)
         self.leer_datos()
-        return f"Se ha insertado el elemento {datos[-1]}"
+        return f"Se ha insertado el elemento {self.datos[-1]}"
     
     def mostrar_datos(self):
         return self.datos
@@ -66,4 +66,4 @@ class Servicios:
         self.datos[indice_dato]["anio_fundacion"] = dato_nuevo["anio_fundacion"]
         self.datos[indice_dato]["dispositivos_vendidos"] = dato_nuevo["dispositivos_vendidos"]
         self.archivo.escribir(self.nombre_archivo, self.datos)
-        return f"Se ha modificado el elemento {datos[indice_dato]}"
+        return f"Se ha modificado el elemento {self.datos[indice_dato]}"
