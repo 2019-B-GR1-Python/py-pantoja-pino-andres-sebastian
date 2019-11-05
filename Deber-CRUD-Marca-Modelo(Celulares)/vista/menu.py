@@ -1,3 +1,4 @@
+import json
 from controlador.serviciosModelo import ServiciosModelo
 from controlador.serviciosMarcas import ServiciosMarcas
 class Menu:
@@ -34,7 +35,7 @@ class Menu:
         
         elif entrada == "2":
             respuesta = self.marca_servicios.mostrar_datos()
-            print(respuesta)
+            print(json.dumps(respuesta, indent = 4))
             self.gestion_marcas()
             
 
@@ -45,7 +46,7 @@ class Menu:
             except ValueError:
                 print("El ID no es valido.")
             respuesta = self.marca_servicios.mostrar_uno_id(int(entrada))
-            print(respuesta)
+            print(json.dumps(respuesta, indent = 4))
             self.gestion_marcas()
             
 
@@ -53,7 +54,7 @@ class Menu:
             # llamar a buscar nombre
             entrada = input("Ingrese el NOMBRE a buscar: ")
             respuesta = self.marca_servicios.mostrar_uno_nombre(entrada)
-            print(respuesta)
+            print(json.dumps(respuesta, indent = 4))
             self.gestion_marcas()
         
         elif entrada == "5":
@@ -62,10 +63,13 @@ class Menu:
 
         elif entrada == "6":
             # llamar a eliminar
-            entrada = input("Ingrese el ID a eliminar: ")
-            respuesta = self.marca_servicios.eliminar(int(entrada))
-            self.modelo_servicios.marca_eliminada(int(entrada))
-            print(respuesta)
+            try:
+                entrada = int(input("Ingrese el ID a eliminar: "))
+            except ValueError:
+                print("El ID no es valido.")
+            respuesta = self.marca_servicios.eliminar(entrada)
+            self.modelo_servicios.marca_eliminada(entrada)
+            print(json.dumps(respuesta, indent = 4))
             self.gestion_marcas()
         
         elif entrada == "7":
@@ -88,7 +92,7 @@ class Menu:
         
         elif entrada == "2":
             respuesta = self.modelo_servicios.mostrar_datos()
-            print(respuesta)
+            print(json.dumps(respuesta, indent = 4))
             self.gestion_modelos()
             
 
@@ -98,8 +102,8 @@ class Menu:
                 entrada = int(input("Ingrese el ID a buscar: "))
             except ValueError:
                 print("El ID no es valido.")
-            respuesta = self.modelo_servicios.mostrar_uno_id(int(entrada))
-            print(respuesta)
+            respuesta = self.modelo_servicios.mostrar_uno_id(entrada)
+            print(json.dumps(respuesta, indent = 4))
             self.gestion_marcas()
             
 
@@ -107,7 +111,7 @@ class Menu:
             # llamar a buscar nombre
             entrada = input("Ingrese el NOMBRE a buscar: ")
             respuesta = self.modelo_servicios.mostrar_uno_nombre(entrada)
-            print(respuesta)
+            print(json.dumps(respuesta, indent = 4))
             self.gestion_modelos()
         
         elif entrada == "5":
@@ -116,9 +120,12 @@ class Menu:
 
         elif entrada == "6":
             # llamar a eliminar
-            entrada = input("Ingrese el ID a eliminar: ")
-            respuesta = self.modelo_servicios.eliminar(int(entrada))
-            print(respuesta)
+            try:
+                entrada = int(input("Ingrese el ID a eliminar: "))
+            except ValueError:
+                print("El ID no es valido.")
+            respuesta = self.modelo_servicios.eliminar(entrada)
+            print(json.dumps(respuesta, indent = 4))
             self.gestion_modelos()
         
         elif entrada == "7":
@@ -144,10 +151,13 @@ class Menu:
             "dispositivos_vendidos" : dispositivos_vendidos
         }
         respuesta = self.marca_servicios.insertar(dato_ingresar)
-        print(respuesta)
+        print(json.dumps(respuesta, indent = 4))
 
     def actualizacion_Marcas(self):
-        id = input("Ingrese el ID del elemento a modificar: ")
+        try:
+            id = int(input("Ingrese el ID del elemento a modificar: "))
+        except ValueError:
+            print("El ID no es valido.")
         nombre = input("Ingrese el nuevo nombre: ")
         pais_origen = input("Ingrese el nuevo pais de origen: ")
         anio_fundacion = input("Ingrese el nuevo anio de fundacion: ")
@@ -160,7 +170,7 @@ class Menu:
             "dispositivos_vendidos" : dispositivos_vendidos
         }
         respuesta = self.marca_servicios.actualizar(dato_actualizar)
-        print(respuesta)
+        print(json.dumps(respuesta, indent = 4))
         
 
     
@@ -169,18 +179,23 @@ class Menu:
         color = input("Ingrese el color: ")
         anio_salida = input("Ingrese el anio de salida: ")
         precio = input("Ingrese el precio: ")
+        idMarca = input("Ingrese el ID de la Marca: ")
         dato_ingresar = {
             "id" : 0,
             "nombre" : nombre,
             "color" : color,
             "anio_salida" : anio_salida,
-            "precio" : precio
+            "precio" : precio,
+            "idMarca": idMarca
         }
-        respuesta = self.modelo_servicios.insertar(dato_ingresar)
-        print(respuesta)
+        respuesta = self.modelo_servicios.ingresar_modelo(dato_ingresar)
+        print(json.dumps(respuesta, indent = 4))
 
     def actualizacion_Modelos(self):
-        id = input("Ingrese el ID del elemento a modificar: ")
+        try:
+            id = int(input("Ingrese el ID del elemento a modificar: "))
+        except ValueError:
+            print("El ID no es valido.")
         nombre = input("Ingrese el nombre: ")
         color = input("Ingrese el color: ")
         anio_salida = input("Ingrese el anio de salida: ")
@@ -192,5 +207,5 @@ class Menu:
             "anio_salida" : anio_salida,
             "precio" : precio
         }
-        respuesta = self.modelo_servicios.insertar(dato_ingresar)
-        print(respuesta)
+        respuesta = self.modelo_servicios.actualizar(dato_ingresar)
+        print(json.dumps(respuesta, indent = 4))

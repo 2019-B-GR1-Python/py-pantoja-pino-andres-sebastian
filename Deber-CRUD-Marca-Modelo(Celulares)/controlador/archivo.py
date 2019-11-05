@@ -11,6 +11,6 @@ class Archivo:
 
     def escribir(self,nombre_archivo,datos):
         self.archivo = open(nombre_archivo, 'w+')
-        self.archivo.write(json.dumps(datos))
+        self.archivo.write(json.dumps(datos, ensure_ascii = False, indent = 4))
         self.archivo.close()
 

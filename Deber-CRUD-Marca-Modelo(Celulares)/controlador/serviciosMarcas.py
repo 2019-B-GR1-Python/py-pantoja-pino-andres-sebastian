@@ -1,14 +1,17 @@
-from archivo import Archivo
-from servicios import Servicios
+from controlador.servicios import Servicios
 class ServiciosMarcas(Servicios):
     def __init__(self, nombre_archivo = "marcas.json"):
         super().__init__(nombre_archivo)
 
     
     def actualizar(self, dato_nuevo):
-        indice_dato = self.buscar("id", dato_nuevo["id"])
+        try:
+            id_buscar = int(dato_nuevo["id"])
+        except ValueError:
+            return "El ID no es valido."
+        indice_dato = self.buscar("id", id_buscar)
         if indice_dato == -1:
-            return "No se ha enconttrado el elemento"
+            return "No se ha encontrado el elemento"
         else:    
             self.datos[indice_dato]["id"] = dato_nuevo["id"]
             self.datos[indice_dato]["nombre"] = dato_nuevo["nombre"]

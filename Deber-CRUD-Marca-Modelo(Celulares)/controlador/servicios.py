@@ -1,4 +1,4 @@
-from archivo import Archivo
+from controlador.archivo import Archivo
 class Servicios:
     datos = None
     archivo = Archivo()
@@ -14,8 +14,10 @@ class Servicios:
     
     def insertar(self,dato_nuevo):
         def calcular_id(datos):
-            return datos[-1]["id"] + 1
-        
+            
+            return int(datos[-1]["id"]) + 1
+            
+
         dato_nuevo["id"] = calcular_id(self.datos)
         self.datos.append(dato_nuevo)
         self.archivo.escribir(self.nombre_archivo,self.datos)

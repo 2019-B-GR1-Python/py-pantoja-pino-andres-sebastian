@@ -1,5 +1,7 @@
-from servicios import Servicios
+from controlador.servicios import Servicios
+from controlador.serviciosMarcas import ServiciosMarcas
 class ServiciosModelo(Servicios):
+    servicios_Marcas = ServiciosMarcas()
     def __init__(self, nombre_archivo = "modelos.json"):
         super().__init__(nombre_archivo)
 
@@ -14,7 +16,6 @@ class ServiciosModelo(Servicios):
             self.datos[indice_dato]["color"] = dato_nuevo["color"]
             self.datos[indice_dato]["anio_salida"] = dato_nuevo["anio_salida"]
             self.datos[indice_dato]["precio"] = dato_nuevo["precio"]
-            self.datos[indice_dato]["idMarca"] = dato_nuevo["idMarca"]
             self.archivo.escribir(self.nombre_archivo, self.datos)
             return f"Se ha modificado el elemento {self.datos[indice_dato]}"
 
@@ -25,5 +26,17 @@ class ServiciosModelo(Servicios):
                 break
             else:
                 self.datos.pop(indice_dato)
+
+    def ingresar_modelo(self,dato_nuevo):
+        try:
+            id_Marca_buscar = int(dato_nuevo["idMarca"])
+        except ValueError:
+            return "El ID de la marca no es valido."
+        idMarca = self.servicios_Marcas.buscar("id", id_Marca_buscar)
+        if idMarca == -1:
+            return f"No existe la marca con ID {id_Marca_buscar}"
+        else:
+            dato_nuevo["idMarca"] = id_Marca_buscar
+            return self.insertar(dato_nuevo)
 
 
