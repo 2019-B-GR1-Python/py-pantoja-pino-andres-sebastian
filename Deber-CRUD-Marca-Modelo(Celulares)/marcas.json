@@ -1,51 +1,23 @@
 [
     {
-        "id": 5,
-        "nombre": "Nombre",
-        "pais_origen": "Pais",
-        "dispositivos_vendidos": 1000,
-        "anio_fundacion": 1999
+        "id": 1,
+        "nombre": "Iphone",
+        "pais_origen": "Estados Unidos",
+        "dispositivos_vendidos": 7300000000,
+        "anio_fundacion": 1976
     },
     {
-        "id": 6,
-        "nombre": "Nombre",
-        "pais_origen": "Pais",
-        "dispositivos_vendidos": 1000,
-        "anio_fundacion": 1999
+        "id": 2,
+        "nombre": "Samsung",
+        "pais_origen": "Corea del Sur",
+        "dispositivos_vendidos": 10000000,
+        "anio_fundacion": 1938
     },
     {
-        "id": 7,
-        "nombre": "Nombre",
-        "pais_origen": "Pais",
-        "dispositivos_vendidos": 1000,
-        "anio_fundacion": 1999
-    },
-    {
-        "id": "Nombreee",
-        "nombre": "asdfsadf",
-        "pais_origen": "dsf",
-        "anio_fundacion": "sdaf",
-        "dispositivos_vendidos": "dsfa"
-    },
-    {
-        "id": 100,
-        "nombre": "1",
-        "pais_origen": "1",
-        "anio_fundacion": "1",
-        "dispositivos_vendidos": "1"
-    },
-    {
-        "id": 101,
-        "nombre": "dfs",
-        "pais_origen": "sdaf",
-        "anio_fundacion": "sadf",
-        "dispositivos_vendidos": "asdf"
-    },
-    {
-        "id": "102",
-        "nombre": "b",
-        "pais_origen": "b",
-        "anio_fundacion": "b",
-        "dispositivos_vendidos": "b"
+        "id": 3,
+        "nombre": "OnePlus",
+        "pais_origen": "China",
+        "dispositivos_vendidos": 20000,
+        "anio_fundacion": 2013
     }
 ]

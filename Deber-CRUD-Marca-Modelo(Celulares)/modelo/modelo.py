@@ -1,4 +1,4 @@
-from marca import Marca
+from modelo.marca import Marca
 class Modelo(Marca):
     id = None
     nombre = None
