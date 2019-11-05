@@ -14,5 +14,3 @@ class Archivo:
         self.archivo.write(json.dumps(datos))
         self.archivo.close()
 
-archivo = Archivo()
-print(archivo.leer("marcas.json"))
