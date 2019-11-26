@@ -125,3 +125,32 @@ ciudades_uno.sort_values().tail(2)
 ciudades_uno.sort_values()
 ciudades_uno.sort_values(ascending = False)
 
+## Se desea que:
+# de 0 a 1000 se le suba un 5%
+# de 1001 a 5000 10%
+# de 5001 a 20000 15%
+
+def calculo(valor):
+    if(valor <= 1000):
+        return valor * 1.05
+    elif (valor > 1000 and valor <= 5000):
+        return valor * 1.1
+    else:
+        return valor * 1.15
+    
+ciudades_uno_modificada = ciudades_uno.map(calculo)
+print(ciudades_uno_modificada)
+
+ciudades_uno_where = ciudades_uno.where(ciudades_uno < 1000, ciudades_uno * 0.5)
+print(ciudades_uno)
+print(ciudades_uno_where)
+
+
+
+
+
+
+
+
+
+
