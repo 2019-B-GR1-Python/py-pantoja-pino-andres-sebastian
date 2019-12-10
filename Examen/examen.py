@@ -32,7 +32,13 @@ respuesta9 = np.random.rand(10,10)
 minimo = respuesta9.min()
 maximo = respuesta9.max()
 
-#Ejercicio 10 ***********
+#Ejercicio 10 
+from scipy import ndimage
+from scipy import misc
+imagen = misc.face()
+# Arrgelo 2d de 3 columnas (rgb) y tantas filas como colores haya
+rgb_totales = imagen.reshape(imagen.shape[0] * imagen.shape[1], imagen.shape[2])
+unicos = np.unique(rgb_totales, axis = 0)
 
 # Ejercicio 11
 mylist = list('abcedfghijklmnopqrstuvwxyz')
