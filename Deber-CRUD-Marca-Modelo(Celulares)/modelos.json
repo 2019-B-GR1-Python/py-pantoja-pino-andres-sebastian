@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "nombre": "X",
+        "color": "Blanco",
+        "anio_salida": "2018",
+        "precio": "$1000",
+        "idMarca": 1
+    },
+    {
+        "id": 2,
+        "nombre": "Galaxy S10",
+        "color": "Negro",
+        "anio_salida": "2019",
+        "precio": "$870",
+        "idMarca": 2
+    },
+    {
+        "id": 3,
+        "nombre": "6",
+        "color": "Negro",
+        "anio_salida": "2018",
+        "precio": "$200",
+        "idMarca": 3
+    },
+    {
+        "id": 4,
+        "nombre": "Note 9",
+        "color": "Blanco",
+        "anio_salida": "2018",
+        "precio": "$1000",
+        "idMarca": 2
+    }
+]

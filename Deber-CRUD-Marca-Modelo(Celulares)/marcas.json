@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "nombre": "Iphone",
+        "pais_origen": "Estados Unidos",
+        "dispositivos_vendidos": 7300000000,
+        "anio_fundacion": 1976
+    },
+    {
+        "id": 2,
+        "nombre": "Samsung",
+        "pais_origen": "Corea del Sur",
+        "dispositivos_vendidos": 10000000,
+        "anio_fundacion": 1938
+    },
+    {
+        "id": 3,
+        "nombre": "OnePlus",
+        "pais_origen": "China",
+        "dispositivos_vendidos": 20000,
+        "anio_fundacion": 2013
+    }
+]
