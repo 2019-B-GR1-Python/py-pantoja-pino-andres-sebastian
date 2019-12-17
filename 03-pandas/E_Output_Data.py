@@ -6,6 +6,7 @@ Created on Tue Dec  3 07:57:48 2019
 """
 import numpy as np
 import pandas as pd
+import sqlite3
 path_guardado = "C://Users//Andres//Desktop//PYTHON//py-pantoja-pino-andres-sebastian//03-pandas//data//artwork_data.pickle"
 path_entero_guardado = "C://Users//Andres//Desktop//PYTHON//py-pantoja-pino-andres-sebastian//03-pandas//data//artwork_data_entero.pickle" 
 df = pd.read_pickle(path_guardado)
@@ -102,7 +103,21 @@ workbook.close()
 
 
 
+###SQL
+import sqlite3
+with sqlite3.connect("C://Users//Andres//Desktop//PYTHON//py-pantoja-pino-andres-sebastian//03-pandas//data//bdd_artist.db") 
+as conexion:
+    df_guardar.to_sql('py_artistas', conexion)
 
+
+
+###JSON
+df.to_json("C://Users//Andres//Desktop//PYTHON//py-pantoja-pino-andres-sebastian//03-pandas//data//artist.json")
+
+
+##JSON en forma de tabla
+df.to_json("C://Users//Andres//Desktop//PYTHON//py-pantoja-pino-andres-sebastian//03-pandas//data//artist_table.json",
+           orient = 'table')
 
 
 
