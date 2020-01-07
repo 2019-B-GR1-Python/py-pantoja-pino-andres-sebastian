@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index</title>
+    <style>
+        /* ID -- El más importante
+            # + nombreId
+         */ 
+        #titulo-uno{
+            background-color: red;
+        }
+
+        /*
+            NOMBRE - ETIQUETA -- Menos importante
+            nombre-etiqueta
+        */
+        p{
+            color: white;
+            background-color: darkblue;
+        }
+
+        body{
+            background-color: darkgrey;
+        }
+
+        /*
+            CLASES -- Segundo más importante
+            . + nombre-clase
+        */
+
+       
+        .fondo-verde{
+            background-color: green;
+        }
+        
+        .texto-azul{
+            color: blue;
+        }
+        .texto-cafe{
+            color: brown;
+        }
+        .texto-amarillo{
+            color: yellow;
+        }
+        .texto-blanco{
+            color: white;
+        }
+        /*
+            Jerarquia: style -> ID -> clase -> etiqueta
+        */
+
+        /*
+            Etiqueta dentro de otra
+        */
+
+        li > p{
+            background-color: coral;
+            color: darkgreen;
+        }
+
+        li > p.texto-amarillo{
+            color: gold;
+        }
+
+        p.texto-azul.texto-cafe.texto-amarillo.texto-blanco{
+            color: hotpink;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 
+    id="titulo-uno" 
+    class="texto-amarillo" 
+    >
+        Titulo
+    </h1>
+
+    <p 
+    class="fondo-verde" 
+    id="titulo-uno" 
+    style="background-color: indigo;">
+    Mi mamá
+    </p>
+    <p class="texto-cafe texto-azul texto-blanco texto-amarillo">
+        Me mima
+    </p>
+
+    <ul>
+        <li>
+            <p
+            class="texto-amarillo">
+                Muy
+            </p
+            >
+        </li>
+        <li>
+            <p>
+                Buenos
+            </p>
+        </li>
+        <li>
+            <p>
+                Días
+            </p>
+        </li>
+    </ul>
+    
+</body>
+</html>
