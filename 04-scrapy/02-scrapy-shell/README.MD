@@ -52,4 +52,30 @@ $ response.css('id|clase|etiqueta::propiedad')
 ```
 
 
+```
+$ response.css('id|clase|etiqueta::propiedad')
+```
 
+
+```
+$ response.css('.row > div > div:nth-child(2) > .text::text').extract()
+```
+
+## Xpath
+
+```
+$ response.xpath("/html/body/div/div[2]/div[2]/h2").extract_first()
+```
+
+```
+$ response.xpath("//div[@class='quote']/span[@class='text']").extract_first()
+```
+
+```
+$ response.xpath("//div[@class='quote']/span/a/@href").extract_first()
+```
+
+## Spiders
+
+
+#### Se usa 'scrapy startproject nombreProyecto'
