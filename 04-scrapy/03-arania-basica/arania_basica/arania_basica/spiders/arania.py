@@ -14,6 +14,9 @@ class IntroSpider(scrapy.Spider):
         'http://books.toscrape.com/catalogue/category/books/travel_2/index.html'
         ]
     new_urls = []
+    next_pages = []
+    actual_url = None
+    next_css = 'ul.pager > li.next > a::attr(href)'
     def start_requests(self):
         for url in self.urls:
             yield scrapy.Request(url=url)
@@ -22,13 +25,20 @@ class IntroSpider(scrapy.Spider):
     def parse(self, response):
         if(len(self.new_urls) == 0):
             self.new_urls = self.new_urls + self.get_other_url_to_visit(response)
+
         category = response.css(self.page_header).extract_first()
         titulos =  response.css(self.titulos_css).extract()
         precios_str =  response.css(self.precios_str_css).extract()
         precios_float = self.handle_prices(precios_str)
         imagenes_img = response.css(self.imagenes_css).extract()
         urls_images = self.handle_url(imagenes_img, 4)
-
+        url_next_pages = response.css(self.next_css).extract_first()
+        if(url_next_pages or self.actual_url == self.urls[0]):
+            indice_final_url = self.find_nth(self.actual_url, '/', 7)
+            next_url = self.actual_url[:indice_final_url] + '/' + url_next_pages
+            print("Neeext-------")
+            print(next_url)
+            
         print("Category: " + category + " started writting")
         with open('info.txt', 'a+') as file:
             file.write('Category: ' + category + '\n')
@@ -38,6 +48,8 @@ class IntroSpider(scrapy.Spider):
 
         print("Category: " + category + " finished writting")
         for url in self.new_urls:
+            self.actual_url = url
+            
             yield scrapy.Request(
                 url = url,
                 callback = self.parse)
@@ -73,3 +85,10 @@ class IntroSpider(scrapy.Spider):
         url_categories = self.handle_url(url_categories_relative, 1, self.categories_additional_path)
         urls_sides = url_index + url_categories
         return urls_sides
+
+    def find_nth(self, haystack, needle, n):
+        start = haystack.find(needle)
+        while start >= 0 and n > 1:
+            start = haystack.find(needle, start+len(needle))
+            n -= 1
+        return start
