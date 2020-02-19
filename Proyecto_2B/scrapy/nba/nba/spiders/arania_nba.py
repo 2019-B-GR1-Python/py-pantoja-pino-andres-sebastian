@@ -97,7 +97,7 @@ class AraniaNBA(scrapy.Spider):
             prob_win_finals_oeste.append(0)
 
         este = np.column_stack((np.array(self.equipos_este), np.array(prob_este)))
-        oeste = np.column_stack((np.array(self.equipos_este), np.array(prob_oeste)))
+        oeste = np.column_stack((np.array(self.equipos_oeste), np.array(prob_oeste)))
 
         df_este = pd.DataFrame(este, columns = self.playoff_prob_columns)
         df_este.to_csv(self.path_archivos + 'playoffs_probs_east.csv', index = False, columns = self.playoff_prob_columns)
